@@ -56,6 +56,7 @@ resource "aws_security_group_rule" "allow_http_inbound" {
   to_port     = local.http_port
   protocol    = local.tcp_protocol
   cidr_blocks = local.all_ips
+  description = "Allow HTTP inbound traffic on port 80"
 }
 
 resource "aws_security_group_rule" "allow_app_inbound" {
@@ -77,6 +78,7 @@ resource "aws_security_group_rule" "allow_all_outbound" {
   to_port     = local.any_port
   protocol    = local.any_protocol
   cidr_blocks = local.all_ips
+  description = "Allow all outbound traffic"
 }
 
 data "aws_vpc" "default" {
